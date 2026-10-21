@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECommerce Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>ShopDemo</h1>
+      <nav id="nav-auth">
+        <span id="nav-user-name"></span>
+        <button id="btn-logout" class="hidden">Logout</button>
+        <button id="btn-show-login">Login</button>
+        <button id="btn-show-register">Register</button>
+      </nav>
+      <button id="btn-cart" class="btn-cart">Cart <span id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <!-- Auth Modal -->
+  <div id="modal-overlay" class="hidden">
+    <div id="modal">
+      <button id="modal-close">&times;</button>
+
+      <!-- Login Form -->
+      <div id="form-login">
+        <h2>Login</h2>
+        <input id="login-email" type="email" placeholder="Email" data-testid="login-email" />
+        <input id="login-password" type="password" placeholder="Password" data-testid="login-password" />
+        <button id="btn-login" data-testid="btn-login">Sign In</button>
+        <p id="login-error" class="error hidden"></p>
+      </div>
+
+      <!-- Register Form -->
+      <div id="form-register" class="hidden">
+        <h2>Register</h2>
+        <input id="reg-name" type="text" placeholder="Full name" data-testid="reg-name" />
+        <input id="reg-email" type="email" placeholder="Email" data-testid="reg-email" />
+        <input id="reg-password" type="password" placeholder="Password" data-testid="reg-password" />
+        <button id="btn-register" data-testid="btn-register">Create Account</button>
+        <p id="register-error" class="error hidden"></p>
+        <p id="register-success" class="success hidden"></p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Products Section -->
+    <section id="section-products">
+      <div class="filters">
+        <input id="search-input" type="text" placeholder="Search products..." data-testid="search-input" />
+        <select id="category-filter" data-testid="category-filter">
+          <option value="">All categories</option>
+        </select>
+      </div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="section-cart" class="hidden">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total"></div>
+      <button id="btn-checkout" data-testid="btn-checkout">Checkout</button>
+      <p id="checkout-msg" class="hidden"></p>
+    </section>
+
+    <!-- Orders Section -->
+    <section id="section-orders" class="hidden">
+      <h2>Your Orders</h2>
+      <div id="orders-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
